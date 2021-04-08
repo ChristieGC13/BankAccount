@@ -1,7 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 public class BankAccount {
@@ -12,10 +8,13 @@ public class BankAccount {
 	private static double moneyStored = 0;
 	
 	public BankAccount() {
-		this.accountNumber = genAccountNum();
+		this.accountNumber = BankAccount.genAccountNum();
+		this.checkingBalance = 0.0;
+		this.savingsBalance = 0.0;
 		numberOfAccounts++;
 	}
 	
+
 	private static String genAccountNum() {
 		Random r = new Random();
 		String nums = "1234567890";
@@ -50,6 +49,29 @@ public class BankAccount {
 		System.out.println("Total balance: " + (checkingBalance + savingsBalance));
 	}
 
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+	
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	
+	public static int getNumberOfAccounts() {
+		return numberOfAccounts;
+	}
+	
+	public static void setNumberOfAccounts(int numberOfAccounts) {
+		BankAccount.numberOfAccounts = numberOfAccounts;
+	}
+	
+	public static double getMoneyStored() {
+		return moneyStored;
+	}
+	
+	public static void setMoneyStored(double moneyStored) {
+		BankAccount.moneyStored = moneyStored;
+	}
 
 	public double getCheckingBalance() {
 		return checkingBalance;
